@@ -7,7 +7,9 @@ yarn-debug.log*
 yarn-error.log*
 /.pnp
 .pnp.js
-
+data/*
+/dist
 .env
 .idea
 .vscode/*
+/generated

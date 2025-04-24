@@ -1,8 +1,6 @@
-FROM node:20 as dev
+FROM node:20 AS dev
 
-WORKDIR /app
-
-ARG env
+WORKDIR /usr/src/app
 
 COPY package*.json ./
 
@@ -10,6 +8,4 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 3000
-
-CMD [ "yarn", "run", "start:dev" ]
+CMD [ "npm", "run", "start" ]
