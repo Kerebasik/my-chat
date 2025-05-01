@@ -6,7 +6,7 @@ import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
   {
-    ignores: ['eslint.config.mjs', "src/util/pipes/validation.pipe.ts", "src/util/exceptions/validation.exception.ts"],
+    ignores: ['eslint.config.mjs', "src/until/pipes/validation.pipe.ts", "src/until/exceptions/validation.exception.ts"],
   },
   eslint.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
