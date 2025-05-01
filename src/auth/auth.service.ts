@@ -9,7 +9,5 @@ export class AuthService {
     return await this.usersService.users({});
   }
 
-  async signup() {
-
-  }
+  async signup() {}
 }

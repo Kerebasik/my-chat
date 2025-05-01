@@ -1,7 +1,7 @@
 import * as dotenv from 'dotenv';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import {ValidationPipe} from "./util/pipes/validation.pipe";
+import { ValidationPipe } from './util/pipes/validation.pipe';
 
 dotenv.config({ path: '.env' });
 
