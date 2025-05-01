@@ -1,11 +1,21 @@
-import { Controller, Get } from '@nestjs/common';
-import { UsersService } from './users.service';
+import {Controller, Get, Body, Post} from '@nestjs/common';
+import {UsersService} from './users.service';
+import {User} from "../../generated/prisma/client"
+import {CreateUserDto} from "./dto/create-user.dto"
 
 @Controller('users')
 export class UsersController {
-  constructor(private usersService: UsersService) {}
-  @Get()
-  users() {
-    return this.usersService.users({});
-  }
+    constructor(private usersService: UsersService) {
+    }
+
+    @Get()
+    getAll() {
+        return this.usersService.users({});
+    }
+
+    @Post()
+    create(@Body() createUserDto: CreateUserDto) {
+        //return this.usersService.create(createUserDto);
+        return createUserDto
+    }
 }

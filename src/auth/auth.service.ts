@@ -5,7 +5,11 @@ import { UsersService } from '../users/users.service';
 export class AuthService {
   constructor(private usersService: UsersService) {}
 
-  async getHello() {
+  async login() {
     return await this.usersService.users({});
+  }
+
+  async signup() {
+
   }
 }
