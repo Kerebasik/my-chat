@@ -19,5 +19,6 @@ const ACCESS_SECRET_KEY = process.env.ACCESS_SECRET_KEY;
       verifyOptions: { clockTimestamp: 0 },
     }),
   ],
+  exports: [AuthService, JwtModule],
 })
 export class AuthModule {}

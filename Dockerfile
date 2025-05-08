@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN npm install --no-cache
+RUN npm ci --no-cache
 
 COPY . .
 

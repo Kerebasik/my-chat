@@ -1,19 +1,30 @@
-import { Controller, Get, Body, Post } from '@nestjs/common';
+import { Controller, Get, Query, Param, UseGuards } from '@nestjs/common';
 import { UsersService } from './users.service';
-import { CreateUserDto } from './dto/create-user.dto';
+import { User } from '../../generated/prisma/client';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
+@UseGuards(JwtAuthGuard)
 @Controller('users')
 export class UsersController {
   constructor(private usersService: UsersService) {}
 
   @Get()
-  getAll() {
-    return this.usersService.users({});
+  getAll(
+    @Query('limit') limit: number = 5,
+    @Query('page') page: number = 0,
+    /* eslint-disable */
+    @Query('orderBy') orderBy: string | undefined,
+    @Query('where') where: string | undefined,
+    /* eslint-enable */
+  ): Promise<User[] | []> {
+    return this.usersService.users({
+      skip: Number(limit * page),
+      take: Number(limit),
+    });
   }
 
-  @Post()
-  create(@Body() createUserDto: CreateUserDto) {
-    //return this.usersService.create(createUserDto);
-    return createUserDto;
+  @Get(':id')
+  getProfile(@Param('id') id: number): Promise<User | null> {
+    return this.usersService.user({ id: Number(id) });
   }
 }
