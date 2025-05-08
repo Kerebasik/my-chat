@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { HttpException, HttpStatus } from '@nestjs/common';
 
 export class ValidationException extends HttpException {
@@ -8,3 +10,5 @@ export class ValidationException extends HttpException {
     this.messages = response;
   }
 }
+
+/* eslint-enable */

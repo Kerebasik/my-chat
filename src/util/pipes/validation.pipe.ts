@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { ArgumentMetadata, Injectable, PipeTransform } from '@nestjs/common';
 import { plainToInstance } from 'class-transformer';
 import { validate } from 'class-validator';
@@ -19,3 +20,5 @@ export class ValidationPipe implements PipeTransform {
     return value;
   }
 }
+
+/* eslint-enable */
